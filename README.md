@@ -2,6 +2,12 @@
 
 # Rapture JSON
 
+## IMPORTANT NOTICE
+
+The Rapture JSON module has been migrated into [the main Rapture project](https://github.com/propensive/rapture), along with the other Rapture modules. As such, this repository no longer reflects the current version of the code.
+
+# About
+
 Rapture JSON is a comprehensive library providing support for working with JSON
 in Scala. Rapture JSON is part of the [Rapture](http://rapture.io/) project.
 
