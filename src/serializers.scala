@@ -12,6 +12,8 @@
 \******************************************************************************************************************/
 package rapture.json
 
+import java.util.UUID
+
 import rapture.core._
 import rapture.data._
 
@@ -40,6 +42,9 @@ private[json] trait Serializers {
 
   implicit def stringSerializer(implicit ast: JsonAst): Serializer[String, Json] =
     BasicJsonSerializer(ast fromString _)
+
+  implicit def uuidSerializer(implicit ast :  JsonAst): Serializer[UUID, Json] =
+    BasicJsonSerializer { uuid : UUID => ast fromString uuid.toString }
 
   implicit def floatSerializer(implicit ast: JsonAst): Serializer[Float, Json] =
     BasicJsonSerializer(ast fromDouble _.toDouble)

@@ -12,6 +12,8 @@
 \******************************************************************************************************************/
 package rapture.json
 
+import java.util.UUID
+
 import rapture.core._
 import rapture.data._
 
@@ -65,6 +67,10 @@ private[json] trait Extractors extends Extractors_1 {
   
   implicit val bigIntExtractor: Extractor[BigInt, Json] { type Throws = DataGetException } =
     bigDecimalExtractor.smap(_.toBigInt)
+
+  implicit val uuidExtractor: Extractor[UUID, Json] { type Throws = DataGetException } =
+    stringExtractor.smap { s : String => UUID.fromString(s) }
+
 }
 
 private[json] trait Extractors_1 {
